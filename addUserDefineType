@@ -1,0 +1,95 @@
+
+USE WarpTMS
+GO
+
+/* Create a user-defined table type */
+CREATE TYPE out.LegModel AS TABLE 
+( 
+	[LegID] [INT] NULL,
+    [InitialETAMin] [DATETIME] NULL,
+    [InitialETAMax] [DATETIME] NULL,
+    [InitialETAMedian] [DATETIME] NULL,
+    [ETADateMin] [DATETIME] NULL,
+	[ETADateMax] [DATETIME] NULL,
+	[ETADateMedian] [DATETIME] NULL,
+	[ExpediteDateMin] [DATETIME] NULL,
+	[ExpediteDateMax] [DATETIME] NULL,
+	[ExpediteDateMedian] [DATETIME] NULL
+ );
+GO
+
+===================================
+
+-- drop procedure [out].[CreateUpdateLegETA]
+Create PROCEDURE [out].[CreateUpdateLegETA] 
+      @legModelDtl out.LegModel readonly
+	AS
+BEGIN
+
+	merge  [out].[LegETA] as target
+		using (	
+				select [LegID], 
+				[InitialETAMin], [InitialETAMax] ,[InitialETAMedian], [ETADateMin] ,[ETADateMax]  ,[ETADateMedian]  
+			,[ExpediteDateMin] ,[ExpediteDateMax] ,[ExpediteDateMedian]  
+				from @legModelDtl
+					) as source
+		on (target.LegID =source.LegID)
+		when matched then
+			update set 
+				target.[ETAMin] = source.[ETADateMin],
+				target.[ETAMedian] = source.[ETADateMedian],
+				target.[ETAMax] = source.[ETADateMax],
+				target.[ExpeditedETAMin] = source.[ExpediteDateMin],
+				target.[ExpeditedETAMedian] = source.[ExpediteDateMedian],
+				target.[ExpeditedETAMax] = source.[ExpediteDateMax],
+				target.ModifyDate = getdate()
+		when not matched by target then
+		insert (LegID, [InitialETAMin], [InitialETAMedian], [InitialETAMax], 
+					   [ETAMin], [ETAMax], [ETAMedian],  
+					   [ExpeditedETAMin] ,[ExpeditedETAMedian] ,[ExpeditedETAMax],
+					   CreateDate, ModifyDate)
+		values (source.LegID, source.[InitialETAMin], source.[InitialETAMedian], source.[InitialETAMax], 
+		source.[ETADateMin], source.[ETADateMax], source.[ETADateMedian], 
+		source.[ExpediteDateMin], source.[ExpediteDateMedian], source.[ExpediteDateMax], 
+		getdate(), getdate()
+		);
+    --select * from @legModelDtl 
+END
+
+=========================================
+
+    public DataTable CreateDataTable<T>(IEnumerable<T> list)
+        {
+            Type type = typeof(T);
+            var properties = type.GetProperties();
+
+            DataTable dataTable = new DataTable();
+            foreach (PropertyInfo info in properties)
+            {
+                dataTable.Columns.Add(new DataColumn(info.Name, Nullable.GetUnderlyingType(info.PropertyType) ?? info.PropertyType));
+            }
+
+            foreach (T entity in list)
+            {
+                object[] values = new object[properties.Length];
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    values[i] = properties[i].GetValue(entity);
+                }
+
+                dataTable.Rows.Add(values);
+            }
+
+            return dataTable;
+        }
+
+=====================
+
+        public void CreateUpdateLegETA(List<LegModel> legModel)
+        {
+            DataTable dt = CreateDataTable<LegModel>(legModel);
+
+            DBManager.Execute(
+                "[out].[CreateUpdateLegETA]", new { legModelDtl = dt.AsTableValuedParameter("out.LegModel") });
+        }
+
