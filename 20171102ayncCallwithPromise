@@ -1,0 +1,49 @@
+    
+    
+var Comments = "";
+var returnLocation = [];
+
+==================================
+function getLocation(url) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("GET", TMS2GetLocationDetailAPIURL + "/TMS2API/locations/" + url, false);
+        req.onload = function () {
+            if (req.status == 200) {
+                returnLocation.push(JSON.parse(req.responseText).Data);
+            }
+            else { console.log("Debug: error in: " + url); }
+        };
+        req.onerror = function () {
+            console.log("Error: error in: " + url);
+        };
+        req.send();
+    });
+}
+====================================
+
+        for (var item in selectedMoveRequests) {
+            addSelectedMoveRequests.push(selectedMoveRequests[item]);
+            addSelectedLocationID[selectedMoveRequests[item].OriginAddress.PickupLocationID] = "";
+            addSelectedLocationID[selectedMoveRequests[item].DestinationAddress.PickupLocationID] = "";
+        }
+
+        Comments = "";
+        for (var item in addSelectedLocationID) {
+            getLocation(item);
+        }
+        for (var item in returnLocation) {
+            if (returnLocation[item] && returnLocation[item].Comment)
+                Comments += returnLocation[item].LocationName + " - " + returnLocation[item].Comment + "\n";
+        }
+=====================================
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var APIURL = '@System.Configuration.ConfigurationManager.AppSettings[""]';

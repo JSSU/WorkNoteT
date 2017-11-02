@@ -92,4 +92,11 @@ END
             DBManager.Execute(
                 "[out].[CreateUpdateLegETA]", new { legModelDtl = dt.AsTableValuedParameter("out.LegModel") });
         }
+======================
+
+
+    var old_html = document.getElementById("Comment").innerHTML;
+    document.getElementById("Comment").innerHTML = Comments + old_html;
+
+	
 
