@@ -1,0 +1,11 @@
+  select distinct  lp.MoveRequestLegID, ves.* from out.load ld
+  inner join out.loadposition lp on ld.loadId = lp.LoadID
+  inner join out.VesselInfoDetails vid on vid.VesselInfoDetailsID = ld.VesselInfoDetailsID
+  inner join out.VesselInfo ves on ves.VesselInfoID = vid.VesselInfoID 
+  where ld.VesselInfoDetailsID <> 0
+  and lp.MoveRequestLegID is not null
+  and (vid.Deleted = 0 or vid.Deleted is null) 
+
+  and ves.VesselNameWithVoyage like '%Maersk kentucky%'
+  order by 1 desc 
+  offset  20 rows fetch next  10 rows only
