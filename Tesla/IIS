@@ -1,0 +1,7 @@
+
+Sometimes, project consume same app pool, they competit for resources.
+fix: add another appPool and attach to the different projects.
+
+Authentication Logics:
+Need to put user => connect as... 
+
