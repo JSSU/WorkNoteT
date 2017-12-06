@@ -1,0 +1,56 @@
+
+--htmlc
+var validateVINUrl = '@Url.Action("IsValidVIN", "MoveRequest")';
+--controller
+public ActionResult IsValidVIN([DataSourceRequest]DataSourceRequest request, string vin)
+{
+    using (OutboundLogisticsClient tmsService = new OutboundLogisticsClient())
+    {
+        var valid = tmsService.IsValidVIN(vin);
+
+        return Json(valid, JsonRequestBehavior.AllowGet);
+    }
+}
+--Js
+                $.ajax({
+                    url: validateVINUrl,
+                    data: { vin: vin },
+                    contentType: "application/x-www-form-urlencoded",
+                    dataType: "json",
+                    type: 'GET',
+                    async: false,
+                    success: function (result, textStatus, jqXHR) {
+                        if (result === true) {
+                            dataItem.VIN = vin;
+                        }
+                        else {
+                            dataItem.VIN = dataItem.LPNumber;
+                        }
+                    },
+                    complete: function () {
+                        $.unblockUI();
+                    }
+                });
+
+==============
+var TMS2GetLocationDetailAPIURL = '@System.Configuration.ConfigurationManager.AppSettings["WarpDriveUrl"]';
+var isInvoiced = '@Url.Action("UpdateInvoiced", "Load")';
+
+
+function getLocation(url) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open("GET", TMS2GetLocationDetailAPIURL + "/TMS2API/locations/" + url, false);
+        req.onload = function () {
+            if (req.status == 200) {
+                returnLocation.push(JSON.parse(req.responseText).Data);
+            }
+            else { console.log("Debug: error in: " + url); }
+        };
+        req.onerror = function () {
+            console.log("Error: error in: " + url);
+        };
+        req.send();
+    });
+}
+
