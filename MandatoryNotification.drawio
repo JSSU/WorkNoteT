@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-13T20:25:17.844Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="IfgnshdNp5d29pHg7Iqu" version="13.7.9" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-14T14:31:37.238Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="v2t8TwWYF6LmTb3imKLH" version="13.7.9" type="github">
   <diagram id="DsH7vl033mQIY3K4GyW0" name="Page-1">
-    <mxGraphModel dx="1890" dy="2103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1835" dy="1765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -44,7 +44,7 @@
         <mxCell id="VUVvk97_Cy0lgHLT0rKq-24" value="check" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="313" y="134.5" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="VUVvk97_Cy0lgHLT0rKq-25" value="CACHE.GET&lt;br&gt;mandatory_notification&amp;nbsp;is TRUE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="VUVvk97_Cy0lgHLT0rKq-25" value="mandatory_notification&amp;nbsp;is TRUE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="98.13" y="110" width="149.75" height="50" as="geometry" />
         </mxCell>
         <mxCell id="VUVvk97_Cy0lgHLT0rKq-31" value="" style="aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.queue_generic;direction=west;" parent="1" vertex="1">
@@ -116,8 +116,8 @@
         <mxCell id="MLjjg7UomqqMNO4sK_RP-17" value="createGroupMessage{...}" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="440" y="-110" width="150" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="MLjjg7UomqqMNO4sK_RP-18" value="&lt;span class=&quot;TextRun SCXW40889449 BCX0&quot; lang=&quot;EN-US&quot; style=&quot;margin: 0px ; padding: 0px ; text-align: left ; background-color: rgb(255 , 255 , 255) ; font-size: 11pt ; font-family: &amp;#34;times new roman&amp;#34; , &amp;#34;times new roman_embeddedfont&amp;#34; , &amp;#34;times new roman_msfontservice&amp;#34; , serif ; line-height: 17px&quot;&gt;&lt;span class=&quot;NormalTextRun ContextualSpellingAndGrammarErrorV2 SCXW40889449 BCX0&quot; style=&quot;margin: 0px ; padding: 0px ; background-repeat: repeat-x ; background-position: left bottom ; background-image: url(&amp;#34;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNXB4IiBoZWlnaHQ9IjNweCIgdmlld0JveD0iMCAwIDUgMyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTUuMiAoNzgxODEpIC0gaHR0cHM6Ly9za2V0Y2hhcHAuY29tIC0tPgogICAgPHRpdGxlPmdyYW1tYXJfZG91YmxlX2xpbmU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0iZ3JhbW1hcl9kb3VibGVfbGluZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgICAgICA8ZyBpZD0iR3JhbW1hci1UaWxlLUNvcHkiIHN0cm9rZT0iIzMzNTVGRiI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLDAuNSBMNSwwLjUiIGlkPSJMaW5lLTItQ29weS0xMCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMCwyLjUgTDUsMi41IiBpZD0iTGluZS0yLUNvcHktMTEiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==&amp;#34;) ; border-bottom: 1px solid transparent ; background-color: inherit&quot;&gt;CACHE.SET&lt;/span&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="96.13" y="45" width="151.75" height="40" as="geometry" />
+        <mxCell id="MLjjg7UomqqMNO4sK_RP-18" value="&lt;span&gt;set mandatory_notification to TRUE&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="76" y="45" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="MLjjg7UomqqMNO4sK_RP-21" value="api/v1/messages" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="322" width="110" height="20" as="geometry" />
